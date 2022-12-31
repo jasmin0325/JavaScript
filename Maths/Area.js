@@ -11,8 +11,8 @@
  * @example surfaceAreaCube(1) = 6
  */
 const surfaceAreaCube = (side) => {
-  validateNumericParam(side, 'side')
-  return 6 * side ** 2
+    validateNumericParam(side, 'side')
+    return 6 * side ** 2
 }
 
 /**
@@ -24,8 +24,8 @@ const surfaceAreaCube = (side) => {
  * @example surfaceAreaSphere(5) = 314.1592653589793
  */
 const surfaceAreaSphere = (radius) => {
-  validateNumericParam(radius, 'radius')
-  return 4.0 * Math.PI * radius ** 2.0
+    validateNumericParam(radius, 'radius')
+    return 4.0 * Math.PI * radius ** 2.0
 }
 
 /**
@@ -38,9 +38,9 @@ const surfaceAreaSphere = (radius) => {
  * @example areaRectangle(4) = 16
  */
 const areaRectangle = (length, width) => {
-  validateNumericParam(length, 'Length')
-  validateNumericParam(width, 'Width')
-  return width * length
+    validateNumericParam(length, 'Length')
+    validateNumericParam(width, 'Width')
+    return width * length
 }
 
 /**
@@ -52,8 +52,8 @@ const areaRectangle = (length, width) => {
  * @example areaSquare(4) = 16
  */
 const areaSquare = (side) => {
-  validateNumericParam(side, 'square side')
-  return side ** 2
+    validateNumericParam(side, 'square side')
+    return side ** 2
 }
 
 /**
@@ -66,9 +66,9 @@ const areaSquare = (side) => {
  * @example areaTriangle(1.66, 3.44) = 2.8552
  */
 const areaTriangle = (base, height) => {
-  validateNumericParam(base, 'Base')
-  validateNumericParam(height, 'Height')
-  return (base * height) / 2.0
+    validateNumericParam(base, 'Base')
+    validateNumericParam(height, 'Height')
+    return (base * height) / 2.0
 }
 
 /**
@@ -82,24 +82,24 @@ const areaTriangle = (base, height) => {
  * @example areaTriangleWithAllThreeSides(5, 6, 7) = 14.7
  */
 const areaTriangleWithAllThreeSides = (side1, side2, side3) => {
-  validateNumericParam(side1, 'side1')
-  validateNumericParam(side2, 'side2')
-  validateNumericParam(side3, 'side3')
-  if (
-    side1 + side2 <= side3 ||
-    side1 + side3 <= side2 ||
-    side2 + side3 <= side1
-  ) {
-    throw new TypeError('Invalid Triangle sides.')
-  }
-  // Finding Semi perimeter of the triangle using formula
-  const semi = (side1 + side2 + side3) / 2
+    validateNumericParam(side1, 'side1')
+    validateNumericParam(side2, 'side2')
+    validateNumericParam(side3, 'side3')
+    if (
+        side1 + side2 <= side3 ||
+        side1 + side3 <= side2 ||
+        side2 + side3 <= side1
+    ) {
+        throw new TypeError('Invalid Triangle sides.')
+    }
+    // Finding Semi perimeter of the triangle using formula
+    const semi = (side1 + side2 + side3) / 2
 
-  // Calculating the area of the triangle
-  const area = Math.sqrt(
-    semi * (semi - side1) * (semi - side2) * (semi - side3)
-  )
-  return Number(area.toFixed(2))
+    // Calculating the area of the triangle
+    const area = Math.sqrt(
+        semi * (semi - side1) * (semi - side2) * (semi - side3)
+    )
+    return Number(area.toFixed(2))
 }
 
 /**
@@ -112,9 +112,9 @@ const areaTriangleWithAllThreeSides = (side1, side2, side3) => {
  * @example areaParallelogram(5, 6) = 24
  */
 const areaParallelogram = (base, height) => {
-  validateNumericParam(base, 'Base')
-  validateNumericParam(height, 'Height')
-  return base * height
+    validateNumericParam(base, 'Base')
+    validateNumericParam(height, 'Height')
+    return base * height
 }
 
 /**
@@ -128,10 +128,10 @@ const areaParallelogram = (base, height) => {
  * @example areaTrapezium(5, 12, 10) = 85
  */
 const areaTrapezium = (base1, base2, height) => {
-  validateNumericParam(base1, 'Base One')
-  validateNumericParam(base2, 'Base Two')
-  validateNumericParam(height, 'Height')
-  return (1 / 2) * (base1 + base2) * height
+    validateNumericParam(base1, 'Base One')
+    validateNumericParam(base2, 'Base Two')
+    validateNumericParam(height, 'Height')
+    return (1 / 2) * (base1 + base2) * height
 }
 
 /**
@@ -143,8 +143,8 @@ const areaTrapezium = (base1, base2, height) => {
  * @example areaCircle(5, 12, 10) = 85
  */
 const areaCircle = (radius) => {
-  validateNumericParam(radius, 'Radius')
-  return Math.PI * radius ** 2
+    validateNumericParam(radius, 'Radius')
+    return Math.PI * radius ** 2
 }
 
 /**
@@ -157,28 +157,68 @@ const areaCircle = (radius) => {
  * @example areaRhombus(12, 10) = 60
  */
 const areaRhombus = (diagonal1, diagonal2) => {
-  validateNumericParam(diagonal1, 'diagonal one')
-  validateNumericParam(diagonal2, 'diagonal two')
-  return (1 / 2) * diagonal1 * diagonal2
+    validateNumericParam(diagonal1, 'diagonal one')
+    validateNumericParam(diagonal2, 'diagonal two')
+    return (1 / 2) * diagonal1 * diagonal2
 }
 
 const validateNumericParam = (param, paramName = 'param') => {
-  if (typeof param !== 'number') {
-    throw new TypeError('The ' + paramName + ' should be type Number')
-  } else if (param < 0) {
-    throw new Error('The ' + paramName + ' only accepts non-negative values')
-  }
+    if (typeof param !== 'number') {
+        throw new TypeError('The ' + paramName + ' should be type Number')
+    } else if (param < 0) {
+        throw new Error('The ' + paramName + ' only accepts non-negative values')
+    }
 }
 
-export {
-  surfaceAreaCube,
-  surfaceAreaSphere,
-  areaRectangle,
-  areaSquare,
-  areaTriangle,
-  areaParallelogram,
-  areaTrapezium,
-  areaCircle,
-  areaRhombus,
-  areaTriangleWithAllThreeSides
-}
+// export {
+//     surfaceAreaCube,
+//     surfaceAreaSphere,
+//     areaRectangle,
+//     areaSquare,
+//     areaTriangle,
+//     areaParallelogram,
+//     areaTrapezium,
+//     areaCircle,
+//     areaRhombus,
+//     areaTriangleWithAllThreeSides
+// }
+console.log("정육면체 겉넓이 예제:6*side**2")
+console.log("입력은 하나,3")
+console.log(surfaceAreaCube(3))
+
+
+console.log("원 겉넓이 예제:4.0 * Math.PI * radius ** 2.0")
+console.log("입력은 하나,3")
+console.log(surfaceAreaSphere(3))
+
+console.log("사각형 넓이:width * length")
+console.log("입력은 둘,3,4")
+console.log(areaRectangle(3, 4))
+
+console.log("정사각형 넓이:side ** 2")
+console.log("입력은 하나,3")
+console.log(areaSquare(3))
+
+console.log("삼각형 넓이:(base * height) / 2.0")
+console.log("입력은 둘,3,4")
+console.log(areaTriangle(3, 4))
+
+console.log("평행사변형 넓이:base * height")
+console.log("입력은 둘,3,4")
+console.log(areaParallelogram(3, 4))
+
+console.log("사다리꼴 넓이:(1 / 2) * (base1 + base2) * height")
+console.log("입력은 셋,3,4,5")
+console.log(areaTrapezium(3, 4, 5))
+
+console.log("원 겉넓이:Math.PI * radius ** 2")
+console.log("입력은 하나,4")
+console.log(areaCircle(4))
+
+console.log("마름모꼴 넓이:(1 / 2) * diagonal1 * diagonal2")
+console.log("입력은 둘,4,5")
+console.log(areaRhombus(4, 5))
+
+console.log("삼각뭐시기:Number(area.toFixed(2))")
+console.log("입력은 셋,4,5,6")
+console.log(areaTriangleWithAllThreeSides(4, 5, 6))
